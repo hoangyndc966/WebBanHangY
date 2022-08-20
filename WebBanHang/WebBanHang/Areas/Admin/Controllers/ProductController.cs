@@ -136,6 +136,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(Product objPro)
         {
+            this.LoadData();
             var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
             objWebBanHangEntities2.Products.Remove(objProduct);
             objWebBanHangEntities2.SaveChanges();
@@ -144,12 +145,15 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int Id)
         {
+            
             var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == Id).FirstOrDefault();
             return View(objProduct);
         }
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(int Id, Product objProduct)
         {
+            
             if (objProduct.ImageUpload != null)
             {
                 string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
@@ -161,8 +165,8 @@ namespace WebBanHang.Areas.Admin.Controllers
             objWebBanHangEntities2.Entry(objProduct).State = EntityState.Modified;
             objWebBanHangEntities2.SaveChanges();
             return RedirectToAction("Index");
-
+        }
         }
     }
-}
+
 
