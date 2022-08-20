@@ -1,0 +1,3 @@
+CREATE DATABASE WebBanHang
+USE WebBanHang
+
