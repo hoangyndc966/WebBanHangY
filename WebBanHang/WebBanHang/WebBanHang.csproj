@@ -197,6 +197,7 @@
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BlankStarterController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ComponentsController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
@@ -211,10 +212,10 @@
     <Compile Include="Controllers\ProfileSellerController.cs" />
     <Compile Include="Controllers\ProfileSettingController.cs" />
     <Compile Include="Controllers\ProfileWishlistController.cs" />
-    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\HomeUserModel.cs" />
     <Compile Include="Models\PartialMetadataType.cs" />
     <Compile Include="Models\ProductMasterData.cs" />
@@ -2873,7 +2874,6 @@
     <Content Include="Views\HomeUser\Index.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\ProfileWishlist\Index.cshtml" />
     <Content Include="Views\ProfileSetting\Index.cshtml" />
     <Content Include="Views\ProfileSeller\Index.cshtml" />
@@ -2889,6 +2889,7 @@
     <Content Include="Views\Category\ProductCategory.cshtml" />
     <Content Include="Views\HomeUser\Register.cshtml" />
     <Content Include="Views\HomeUser\Login.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

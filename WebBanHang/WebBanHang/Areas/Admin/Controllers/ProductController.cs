@@ -145,26 +145,71 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int Id)
         {
-            
-            var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == Id).FirstOrDefault();
-            return View(objProduct);
+
+            //var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == Id).FirstOrDefault();
+            //return View(objProduct);
+            var lstcat = objWebBanHangEntities2.Categories.ToList();
+            ViewBag.ListCategory = new SelectList(lstcat, "Id", "Name", 0);
+
+            var lstbrand = objWebBanHangEntities2.Brands.ToList();
+            ViewBag.ListBrand = new SelectList(lstbrand, "Id", "Name", 0);
+
+            Product row = objWebBanHangEntities2.Products.AsNoTracking().Where(n => n.Id == Id).FirstOrDefault();
+            return View(row);
         }
         [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(int Id, Product objProduct)
         {
-            
-            if (objProduct.ImageUpload != null)
+
+            //if (objProduct.ImageUpload != null)
+            //{
+            //    string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
+            //    string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
+            //    fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
+            //    objProduct.Avartar = fileName;
+            //    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+            //}
+            //objWebBanHangEntities2.Entry(objProduct).State = EntityState.Modified;
+            //objWebBanHangEntities2.SaveChanges();
+            //return RedirectToAction("Index");
+            try
             {
-                string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
-                string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
-                fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
-                objProduct.Avartar = fileName;
-                objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+
+                if (objProduct.ImageUpload != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
+                    //tenhinh
+                    string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
+                    //png
+                    fileName = fileName + extension;
+                    // tenhinh.png
+                    objProduct.Avartar = fileName;
+                    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                }
+                else
+                {
+                    //mấy chỗ sửa k dùng find
+                    Product item = objWebBanHangEntities2.Products.AsNoTracking().Where(n => n.Id == objProduct.Id).FirstOrDefault();
+                    objProduct.Avartar = item.Avartar;
+                }
+                if (objProduct.CategoryId == null)
+                {
+                    objProduct.CategoryId = 0;
+                }
+                objWebBanHangEntities2.CreateOnUtc = DateTime.Now;
+                objWebBanHangEntities2.Entry(objProduct).State = EntityState.Modified;
+                objWebBanHangEntities2.SaveChanges();
+
+                return RedirectToAction("Index");
             }
-            objWebBanHangEntities2.Entry(objProduct).State = EntityState.Modified;
-            objWebBanHangEntities2.SaveChanges();
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+                var lstcat = objWebBanHangEntities2.Categories.ToList();
+                ViewBag.ListCategory = new SelectList(lstcat, "Id", "Name", 0);
+                return View(objProduct);
+            }
         }
         }
     }

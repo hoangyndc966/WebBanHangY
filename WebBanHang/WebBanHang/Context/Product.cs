@@ -16,6 +16,7 @@ namespace WebBanHang.Context
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+
     public partial class Product
     {
        

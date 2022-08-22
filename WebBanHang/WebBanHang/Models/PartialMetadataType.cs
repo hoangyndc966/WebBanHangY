@@ -23,5 +23,6 @@ namespace WebBanHang.Models
     {
         [NotMapped]
         public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+        public object Id { get; internal set; }
     }
 }
