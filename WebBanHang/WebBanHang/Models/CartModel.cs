@@ -7,8 +7,8 @@ namespace WebBanHang.Models
 {
     public class CartModel
     {
-        public Product Product { get; set; }
-        public int Quantity { get; set; }
+        public Context.Product Product { get; set; }
+        public int Quantity { get; set; }   
 
     }
 }

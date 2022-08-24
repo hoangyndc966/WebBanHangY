@@ -165,6 +165,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Common.cs" />
@@ -2147,6 +2148,7 @@
     <Content Include="Content\images\allProduct\damnu1.jpg" />
     <Content Include="Content\images\allProduct\damnu2.jpg" />
     <Content Include="Content\images\allProduct\kinhmattrong.jpg" />
+    <Content Include="Content\images\allProduct\payments.png" />
     <Content Include="Content\images\allProduct\phukien1.jpg" />
     <Content Include="Content\images\allProduct\phukien2.jpg" />
     <Content Include="Content\images\allProduct\phukien3.jpg" />
@@ -2543,6 +2545,7 @@
     <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-
+using WebBanHang.Context;
 
 
 namespace WebBanHang.Models
@@ -23,7 +23,8 @@ namespace WebBanHang.Models
     {
         [NotMapped]
         public System.Web.HttpPostedFileBase ImageUpload { get; set; }
-        public object Id { get; internal set; }
+       
+       
     }
 
 

@@ -53,11 +53,11 @@
                                     <option value="comments">Only best</option>
                                     <option value="content">Latest</option>
                                 </select>
-                                <input type="text" class="form-control" placeholder="Search">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm">
 
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">
-                                        <i class="fa fa-search"></i> Search
+                                        <i class="fa fa-search"></i> Tìm kiếm
                                     </button>
                                 </div>
                             </div>
@@ -97,19 +97,19 @@
                                         <i class="fa fa-comment-dots"></i>
                                         <span class="notify">1</span>
                                     </div>
-                                    <small class="text"> Message </small>
+                                    <small class="text"> Tin nhắn </small>
                                 </a>
                             </div>
-                            <div class="widget-header mr-3">
+                            @*<div class="widget-header mr-3">
                                 <a href="@Url.Action("Index","Cart")"class="widget-view">
                                     <div class="icon-area">
                                         <i class="fa fa-store"></i>
                                     </div>
                                     <small class="text"> Orders </small>
                                 </a>
-                            </div>
+                            </div>*@
                             <div class="widget-header">
-                                <a href="#" class="widget-view">
+                                <a href="@Url.Action("Index", "Cart")" class="widget-view">
                                     <div class="icon-area">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span class="notify" id="CartCount">@Session["Count"]</span>
@@ -144,10 +144,11 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Danh mục</a>
+                            <a class="nav-link" href="#">Khuyến mãi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giảm giá sốc</a>
+                            <a class="nav-link" href="#">Dịch vụ</a>
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>

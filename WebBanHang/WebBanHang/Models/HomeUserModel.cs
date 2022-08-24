@@ -9,8 +9,8 @@ namespace WebBanHang.Models
 {
     public class HomeUserModel
     {
+        
         public List<Context.Product> ListProduct { get; set; }
-        //public List<Product> ListProduct { get; set; }
 
         public List<Category> ListCategory { get; set; } 
         public List<Brand> ListBrand { get; set; }
