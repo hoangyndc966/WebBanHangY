@@ -101,7 +101,7 @@
                                 </a>
                             </div>
                             <div class="widget-header mr-3">
-                                <a href="#" class="widget-view">
+                                <a href="@Url.Action("Index","Cart")"class="widget-view">
                                     <div class="icon-area">
                                         <i class="fa fa-store"></i>
                                     </div>
@@ -112,6 +112,7 @@
                                 <a href="#" class="widget-view">
                                     <div class="icon-area">
                                         <i class="fa fa-shopping-cart"></i>
+                                        <span class="notify" id="CartCount">@Session["Count"]</span>
                                     </div>
                                     <small class="text"> Giỏ hàng </small>
                                 </a>

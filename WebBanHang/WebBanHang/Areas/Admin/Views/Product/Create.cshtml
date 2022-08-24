@@ -6,14 +6,14 @@
 }
 <script src="~/Scripts/ckeditor/ckeditor.js"></script>
 <div class="content-wrapper">
-    <h2>Tạo mới sản phẩm</h2>
+    <h2 style="color: red ">Tạo mới sản phẩm</h2>
 
     @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype="multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>Sản phẩm</h4>
+            <h5 style="color: #808080 ">Sản phẩm</h5>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">

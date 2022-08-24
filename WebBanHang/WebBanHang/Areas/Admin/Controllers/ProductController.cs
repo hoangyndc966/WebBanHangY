@@ -126,17 +126,18 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.ProductType = objCommon.ToSelectList(dtProductType, "Id", "Name");
 
         }
+
         [HttpGet]
         public ActionResult Delete(int Id)
         {
-
+            
             var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == Id).FirstOrDefault();
             return View(objProduct);
         }
         [HttpPost]
         public ActionResult Delete(Product objPro)
         {
-            this.LoadData();
+            
             var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == objPro.Id).FirstOrDefault();
             objWebBanHangEntities2.Products.Remove(objProduct);
             objWebBanHangEntities2.SaveChanges();
@@ -146,14 +147,20 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Edit(int Id)
         {
 
+
             //var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == Id).FirstOrDefault();
             //return View(objProduct);
+
+            // category
             var lstcat = objWebBanHangEntities2.Categories.ToList();
             ViewBag.ListCategory = new SelectList(lstcat, "Id", "Name", 0);
 
+            // brand
             var lstbrand = objWebBanHangEntities2.Brands.ToList();
             ViewBag.ListBrand = new SelectList(lstbrand, "Id", "Name", 0);
 
+            // loai sp
+           
             Product row = objWebBanHangEntities2.Products.AsNoTracking().Where(n => n.Id == Id).FirstOrDefault();
             return View(row);
         }
@@ -161,18 +168,6 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(int Id, Product objProduct)
         {
-
-            //if (objProduct.ImageUpload != null)
-            //{
-            //    string fileName = Path.GetFileNameWithoutExtension(objProduct.ImageUpload.FileName);
-            //    string extension = Path.GetExtension(objProduct.ImageUpload.FileName);
-            //    fileName = fileName + "_" + long.Parse(DateTime.Now.ToString("yyyyMMddhhmmss")) + extension;
-            //    objProduct.Avartar = fileName;
-            //    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
-            //}
-            //objWebBanHangEntities2.Entry(objProduct).State = EntityState.Modified;
-            //objWebBanHangEntities2.SaveChanges();
-            //return RedirectToAction("Index");
             try
             {
 

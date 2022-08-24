@@ -40,13 +40,13 @@ namespace WebBanHang.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            
+
             return View();
         }
 
         [HttpPost]
         //POST: Register
-        
+
         [ValidateAntiForgeryToken]
         public ActionResult Register(User _user)
         {
@@ -73,7 +73,7 @@ namespace WebBanHang.Controllers
 
 
         }
-        
+
         //create a string MD5
         public static string GetMD5(string str)
         {
