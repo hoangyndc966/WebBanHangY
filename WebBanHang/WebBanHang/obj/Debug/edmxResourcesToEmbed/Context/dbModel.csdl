@@ -28,17 +28,6 @@
     <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
     <Property Name="UpdatedOnUtc" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityType Name="Order">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ProductId" Type="Int32" />
-    <Property Name="Price" Type="Double" />
-    <Property Name="Status" Type="Int32" />
-    <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
-  </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="Id" />
@@ -47,8 +36,8 @@
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Avartar" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <Property Name="CategoryId" Type="Int32" />
-    <Property Name="ShortDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="fullDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="fullDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Double" />
     <Property Name="PriceDiscount" Type="Double" />
     <Property Name="TypeId" Type="Int32" />
@@ -74,8 +63,28 @@
   <EntityContainer Name="WebBanHangEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Brands" EntityType="Self.Brand" />
     <EntitySet Name="Categories" EntityType="Self.Category" />
-    <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Orders" EntityType="WebBanHangModel.Order" />
+    <EntitySet Name="OrderDetails" EntityType="WebBanHangModel.OrderDetail" />
   </EntityContainer>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UsertId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

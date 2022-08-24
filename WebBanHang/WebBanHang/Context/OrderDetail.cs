@@ -12,13 +12,11 @@ namespace WebBanHang.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class OrderDetail
     {
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public bool IsAdmin { get; set; }
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
     }
 }

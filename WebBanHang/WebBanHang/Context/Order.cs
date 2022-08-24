@@ -16,8 +16,7 @@ namespace WebBanHang.Context
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<double> Price { get; set; }
+        public Nullable<int> UsertId { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<System.DateTime> CreatedOnUtc { get; set; }
     }

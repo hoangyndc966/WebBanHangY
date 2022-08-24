@@ -34,10 +34,18 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="100" />
-    <Property Name="ProductId" Type="int" />
-    <Property Name="Price" Type="float" />
+    <Property Name="UsertId" Type="int" />
     <Property Name="Status" Type="int" />
     <Property Name="CreatedOnUtc" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -47,8 +55,8 @@
     <Property Name="Name" Type="nvarchar" MaxLength="100" />
     <Property Name="Avartar" Type="nchar" MaxLength="100" />
     <Property Name="CategoryId" Type="int" />
-    <Property Name="ShortDescription" Type="nvarchar" MaxLength="100" />
-    <Property Name="fullDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShortDescription" Type="nvarchar" MaxLength="1000" />
+    <Property Name="fullDescription" Type="nvarchar" MaxLength="1000" />
     <Property Name="Price" Type="float" />
     <Property Name="PriceDiscount" Type="float" />
     <Property Name="TypeId" Type="int" />
@@ -75,6 +83,7 @@
     <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
