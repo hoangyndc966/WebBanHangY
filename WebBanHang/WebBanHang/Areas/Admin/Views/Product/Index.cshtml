@@ -229,7 +229,9 @@
                     <center> @Html.DisplayFor(modelItem => item.Name)</center>
                 </td>
                 <td>
-                    <center> @Html.DisplayFor(modelItem => item.Avartar)</center>
+                    <center>
+                        <img style="max-width:50px;" src="~/Content/images/product/@item.Avartar" />
+                    </center>
                 </td>
                 <td>
                     <center>@Html.DisplayFor(modelItem => item.CategoryId)</center>

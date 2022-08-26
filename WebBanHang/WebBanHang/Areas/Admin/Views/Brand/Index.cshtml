@@ -218,7 +218,9 @@
             <center> @Html.DisplayFor(modelItem => item.Name)</center>
         </td>
         <td>
-            <center> @Html.DisplayFor(modelItem => item.Avatar)</center>
+            <center>
+                <img style="max-width:50px;" src="~/Content/images/allProduct/@item.Avatar" />
+            </center>
         </td>
         <td>
             <center> @Html.DisplayFor(modelItem => item.Slug)</center>

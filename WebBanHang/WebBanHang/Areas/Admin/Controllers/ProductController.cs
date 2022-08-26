@@ -77,7 +77,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                         fileName = fileName + extension;
                         // tenhinh.png
                         objProduct.Avartar = fileName;
-                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                        objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/product"), fileName));
                     }
                     objWebBanHangEntities2.CreateOnUtc = DateTime.Now;
                     objWebBanHangEntities2.Products.Add(objProduct);
@@ -180,7 +180,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                     fileName = fileName + extension;
                     // tenhinh.png
                     objProduct.Avartar = fileName;
-                    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), fileName));
+                    objProduct.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Content/images/allProduct"), fileName));
                 }
                 else
                 {
