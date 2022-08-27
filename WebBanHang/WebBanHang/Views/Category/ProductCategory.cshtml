@@ -1,8 +1,179 @@
-﻿
-@model List<WebBanHang.Context.Product>
+﻿@*@model List<WebBanHang.Context.Product>*@
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<WebBanHang.Context.Product>
 @{
     ViewBag.Title = "ProductCategory";
 }
+<style>
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.428571429;
+                text-decoration: none;
+                background-color: #ffffff;
+                border: 1px solid #dddddd;
+            }
+
+            .pagination > li:first-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            .pagination > li > a:hover,
+            .pagination > li > span:hover,
+            .pagination > li > a:focus,
+            .pagination > li > span:focus {
+                background-color: #ff6a00;
+                background-color: #eeeeee;
+            }
+
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #ffffff;
+            cursor: default;
+            background-color: #428bca;
+            border-color: #428bca;
+        }
+
+        .pagination > .disabled > span,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #999999;
+            cursor: not-allowed;
+            background-color: #ffffff;
+            border-color: #dddddd;
+        }
+
+    .pagination-lg > li > a,
+    .pagination-lg > li > span {
+        padding: 10px 16px;
+        font-size: 18px;
+    }
+
+    .pagination-lg > li:first-child > a,
+    .pagination-lg > li:first-child > span {
+        border-bottom-left-radius: 6px;
+        border-top-left-radius: 6px;
+    }
+
+    .pagination-lg > li:last-child > a,
+    .pagination-lg > li:last-child > span {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .pagination-sm > li > a,
+    .pagination-sm > li > span {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .pagination-sm > li:first-child > a,
+    .pagination-sm > li:first-child > span {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .pagination-lg > li:last-child > a,
+    .pagination-lg > li:last-child > span {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    .pager {
+        padding-left: 0;
+        margin: 20px 0;
+        text-align: center;
+        list-style: none;
+    }
+
+        .pager:before,
+        .pager:after {
+            display: table;
+            content: " ";
+        }
+
+    .page:after {
+        clear: both;
+    }
+
+    .pager:before,
+    .pager:after {
+        display: table;
+        content: " ";
+    }
+
+    .page:after {
+        clear: both;
+    }
+
+    .page li {
+        display: inline;
+    }
+
+    .pager li > a,
+    .pager li > span {
+        display: inline-block;
+        padding: 5px 14px;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 15px;
+    }
+
+        .pager li > a:hover,
+        .pager li > a:focus {
+            text-decoration: none;
+            background-color: #eeeeee;
+        }
+
+    .pager .next > a,
+    .pager .next > span {
+        float: right;
+    }
+
+    .pager .previous > a,
+    .pager .previous > span {
+        float: left;
+    }
+
+    .pager .disabled > a,
+    .pager .disabled > a:hover,
+    .pager .disabled > a:focus,
+    .pager .disabled > span {
+        color: #999999;
+        cursor: not-allowed;
+        background-color: #ffffff;
+    }
+</style>
+
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
@@ -10,15 +181,15 @@
 
 
         <!-- ============================  FILTER TOP  ================================= -->
-        <div class="card mb-3">
+        <!--<div class="card mb-3">
             <div class="card-body">
                 <ol class="breadcrumb float-left">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Category name</a></li>
                     <li class="breadcrumb-item active">Item details</li>
                 </ol>
-            </div> <!-- card-body .// -->
-        </div> <!-- card.// -->
+            </div>--> <!-- card-body .// -->
+        <!--</div>--> <!-- card.// -->
         <!-- ============================ FILTER TOP END.// ================================= -->
 
 
@@ -27,17 +198,15 @@
 
                 <article class="filter-group">
                     <h6 class="title">
-                        <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1">	Loại sản phẩm </a>
+                        <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#collapse_1">	Danh mục sản phẩm </a>
                     </h6>
                     <div class="filter-content collapse show" id="collapse_1">
                         <div class="inner">
                             <ul class="list-menu">
-                                <li><a href="#">Quần short  </a></li>
-                                <li><a href="#">Quần dài </a></li>
-                                <li><a href="#">Áo len  </a></li>
-                                <li><a href="#">Quần áo  </a></li>
-                                <li><a href="#">Áo khoác </a></li>
-                                
+                                <li><a href="https://localhost:44330/Category/ProductCategory/2">Đồ nam  </a></li>
+                                <li><a href="https://localhost:44330/Category/ProductCategory/1">Đồ nữ </a></li>
+                                <li><a href="https://localhost:44330/Category/ProductCategory/3">Phụ kiện </a></li>
+                                <li><a href="https://localhost:44330/Category/ProductCategory/6">Túi xách  </a></li>
                             </ul>
                         </div> <!-- inner.// -->
                     </div>
@@ -69,7 +238,7 @@
                                     <b class="badge badge-pill badge-light float-right">35</b>
                                 </div>
                             </label>
-                            
+
                         </div> <!-- inner.// -->
                     </div>
                 </article> <!-- filter-group .// -->
@@ -157,12 +326,16 @@
 
                 <header class="mb-3">
                     <div class="form-inline">
-                        <strong class="mr-md-auto">32 Items found </strong>
+                        <strong class="mr-md-auto">32 Sản phẩm được tìm thấy</strong>
                         <select class="mr-2 form-control">
-                            <option>Latest items</option>
-                            <option>Trending</option>
-                            <option>Most Popular</option>
-                            <option>Cheapest</option>
+                            <option>
+                                Mặt hàng mới nhất
+                            </option>
+                            <option>Mặt hàng hot</option>
+                            <option>Phổ biến nhất</option>
+                            <option>
+                                Rẻ nhất
+                            </option>
                         </select>
                         <div class="btn-group">
                             <a href="page-listing-grid.html" class="btn btn-light" data-toggle="tooltip" title="List view">
@@ -180,11 +353,11 @@
                     <article class="card card-product-list">
                         <div class="row no-gutters">
                             <aside class="col-md-3">
-                               
-                                    <a href="@Url.Action("Detail", "Product", new { Id=item.Id})" class="img-wrap">
-                                        <span class="badge badge-danger"> NEW </span>
-                                        <img src="~/Content/images/allProduct/@item.Avartar">
-                                    </a>
+
+                                <a href="@Url.Action("Detail", "Product", new { Id=item.Id})" class="img-wrap">
+                                    <span class="badge badge-danger"> NEW </span>
+                                    <img src="~/Content/images/allProduct/@item.Avartar">
+                                </a>
                             </aside> <!-- col.// -->
                             <div class="col-md-6">
                                 <div class="info-main">
@@ -206,10 +379,10 @@
                                     </div> <!-- rating-wrap.// -->
 
                                     <p class="mb-3">
-                                        <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-                                        <span class="tag"> 5 Years </span>
-                                        <span class="tag"> 80 reviews </span>
-                                        <span class="tag"> Russia </span>
+                                        <span class="tag"> <i class="fa fa-check"></i> Đã xác minh</span>
+                                        <span class="tag"> 5 năm </span>
+                                        <span class="tag"> 80 đánh giá </span>
+                                        <span class="tag"> Nga </span>
                                     </p>
 
                                     <p>
@@ -228,16 +401,16 @@
 
                                     <p class="text-muted mt-3">Công ty dệt may lớn</p>
                                     @*<p class="mt-3">
-                                        <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
-                                        <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
-                                    </p>*@
+                                            <a href="#" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Contact supplier </a>
+                                            <a href="#" class="btn btn-light"><i class="fa fa-heart"></i> Save </a>
+                                        </p>*@
 
                                     @*<label class="custom-control mt-3 custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <div class="custom-control-label">
-                                            Add to compare
-                                        </div>
-                                    </label>*@
+                                            <input type="checkbox" class="custom-control-input">
+                                            <div class="custom-control-label">
+                                                Add to compare
+                                            </div>
+                                        </label>*@
 
                                 </div> <!-- info-aside.// -->
                             </aside> <!-- col.// -->
@@ -247,23 +420,29 @@
                 }
 
 
-                <nav class="mb-4" aria-label="Page navigation sample">
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
+            <nav class="mb-4" aria-label="Mẫu điều hướng trang">
+                @*<ul class="pagination">
+            <li class="page-item disabled"><a class="page-link" href="#">Trước đó</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item"><a class="page-link" href="#">Tiếp theo</a></li>
+        </ul>*@
+                <center>
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                    @Html.PagedListPager(Model, page => Url.Action("ProductCategory",
+                     new { page, currentFilter = ViewBag.CurrentFilter }))
+                </center>
+            </nav>
 
 
                 <div class="box text-center">
-                    <p>Did you find what you were looking for？</p>
-                    <a href="" class="btn btn-light">Yes</a>
-                    <a href="" class="btn btn-light">No</a>
+                    <p>Bạn đã tìm thấy những gì bạn đang tìm kiếm?</p>
+                    <a href="" class="btn btn-light">Rồi</a>
+                    <a href="" class="btn btn-light">Chưa</a>
                 </div>
 
 
@@ -278,7 +457,7 @@
 <section class="padding-y-lg bg-light border-top">
     <div class="container">
 
-        <p class="pb-2 text-center">Delivering the latest product trends and industry news straight to your inbox</p>
+        <p class="pb-2 text-center">Cung cấp các xu hướng sản phẩm mới nhất và tin tức ngành đến hộp thư đến của bạn</p>
 
         <div class="row justify-content-md-center">
             <div class="col-lg-4 col-sm-6">
@@ -290,7 +469,9 @@
                         <button type="submit" class="btn btn-block btn-warning"> <i class="fa fa-envelope"></i> Subscribe </button>
                     </div> <!-- col.// -->
                 </form>
-                <small class="form-text">We’ll never share your email address with a third-party. </small>
+                <small class="form-text">
+                    Chúng tôi sẽ không bao giờ chia sẻ địa chỉ email của bạn với bên thứ ba.
+                </small>
             </div> <!-- col-md-6.// -->
         </div>
 

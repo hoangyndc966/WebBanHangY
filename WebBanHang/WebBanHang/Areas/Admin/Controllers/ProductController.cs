@@ -40,7 +40,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             ViewBag.CurrentFilter = SearchString;
             // sl item của 1 trang = 4
-            int pageSize = 4;
+            int pageSize = 5;
             int pageNumber = (page ?? 1);
             // sap xep theo id sp, sp mới đưa lên đầu
             lstProduct = lstProduct.OrderByDescending(n => n.Id).ToList();
