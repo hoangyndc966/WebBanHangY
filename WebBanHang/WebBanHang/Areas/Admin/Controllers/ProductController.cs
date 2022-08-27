@@ -147,10 +147,6 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Edit(int Id)
         {
 
-
-            //var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == Id).FirstOrDefault();
-            //return View(objProduct);
-
             // category
             var lstcat = objWebBanHangEntities2.Categories.ToList();
             ViewBag.ListCategory = new SelectList(lstcat, "Id", "Name", 0);
@@ -160,9 +156,29 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.ListBrand = new SelectList(lstbrand, "Id", "Name", 0);
 
             // loai sp
-           
-            Product row = objWebBanHangEntities2.Products.AsNoTracking().Where(n => n.Id == Id).FirstOrDefault();
+            //Loại sản phẩm
+            Common objCommon = new Common();
+            ListtoDataTableConverter converter = new ListtoDataTableConverter();
+            List<ProductType> lstProductType = new List<ProductType>();
+            ProductType objProductType = new ProductType();
+            objProductType.Id = 01;
+            objProductType.Name = "Giảm giá sốc";
+            lstProductType.Add(objProductType);
+
+            objProductType = new ProductType();
+            objProductType.Id = 02;
+            objProductType.Name = "Đề xuất";
+            lstProductType.Add(objProductType);
+
+            DataTable dtProductType = converter.ToDataTable(lstProductType);
+            // convert sang select list dạng value, text
+            ViewBag.ProductType = objCommon.ToSelectList(dtProductType, "Id", "Name");
+
+            Product row = objWebBanHangEntities2.Products/*.AsNoTracking()*/.Where(n => n.Id == Id).FirstOrDefault();
             return View(row);
+
+            //var objProduct = objWebBanHangEntities2.Products.Where(n => n.Id == Id).FirstOrDefault();
+            //return View(objProduct);
         }
         [ValidateInput(false)]
         [HttpPost]

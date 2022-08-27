@@ -2173,6 +2173,10 @@
     <Content Include="Content\images\allProduct\Quanshortbo.jpg" />
     <Content Include="Content\images\allProduct\tuixach.jpg" />
     <Content Include="Content\images\allProduct\tuixach1.jpg" />
+    <Content Include="Content\images\allProduct\tuixach2.png" />
+    <Content Include="Content\images\allProduct\tuixach3.png" />
+    <Content Include="Content\images\allProduct\tuixach4.png" />
+    <Content Include="Content\images\allProduct\tuixach5.png" />
     <Content Include="Content\images\allProduct\tuixachvaiden.jpg" />
     <Content Include="Content\images\allProduct\Vayhoa.jpg" />
     <Content Include="Content\images\allProduct\vinuhoatiet.jpg" />
@@ -2233,6 +2237,7 @@
     <Content Include="Content\images\category\damnu1.jpg" />
     <Content Include="Content\images\category\damnu2.jpg" />
     <Content Include="Content\images\category\kinhmattrong.jpg" />
+    <Content Include="Content\images\category\payments.png" />
     <Content Include="Content\images\category\phukien1.jpg" />
     <Content Include="Content\images\category\phukien2.jpg" />
     <Content Include="Content\images\category\phukien3.jpg" />
@@ -2255,6 +2260,10 @@
     <Content Include="Content\images\category\Quanshortbo.jpg" />
     <Content Include="Content\images\category\tuixach.jpg" />
     <Content Include="Content\images\category\tuixach1.jpg" />
+    <Content Include="Content\images\category\tuixach2.png" />
+    <Content Include="Content\images\category\tuixach3.png" />
+    <Content Include="Content\images\category\tuixach4.png" />
+    <Content Include="Content\images\category\tuixach5.png" />
     <Content Include="Content\images\category\tuixachvaiden.jpg" />
     <Content Include="Content\images\category\Vayhoa.jpg" />
     <Content Include="Content\images\category\vinuhoatiet.jpg" />
@@ -2342,6 +2351,7 @@
     <Content Include="Content\images\product\damnu1.jpg" />
     <Content Include="Content\images\product\damnu2.jpg" />
     <Content Include="Content\images\product\kinhmattrong.jpg" />
+    <Content Include="Content\images\product\payments.png" />
     <Content Include="Content\images\product\phukien1.jpg" />
     <Content Include="Content\images\product\phukien2.jpg" />
     <Content Include="Content\images\product\phukien3.jpg" />
@@ -2364,6 +2374,10 @@
     <Content Include="Content\images\product\Quanshortbo.jpg" />
     <Content Include="Content\images\product\tuixach.jpg" />
     <Content Include="Content\images\product\tuixach1.jpg" />
+    <Content Include="Content\images\product\tuixach2.png" />
+    <Content Include="Content\images\product\tuixach3.png" />
+    <Content Include="Content\images\product\tuixach4.png" />
+    <Content Include="Content\images\product\tuixach5.png" />
     <Content Include="Content\images\product\tuixachvaiden.jpg" />
     <Content Include="Content\images\product\Vayhoa.jpg" />
     <Content Include="Content\images\product\vinuhoatiet.jpg" />
