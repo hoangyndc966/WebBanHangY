@@ -43,5 +43,27 @@ namespace WebBanHang.Areas.Admin.Controllers
             lstOrder = lstOrder.OrderByDescending(n => n.Id).ToList();
             return View(lstOrder.ToPagedList(pageNumber, pageSize));
         }
+        public ActionResult Details(int Id)
+        {
+            var order = objWebBanHangEntities2.Orders.Where(n => n.Id == Id).FirstOrDefault();
+            return View(order);
+        }
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+
+            var objorder= objWebBanHangEntities2.Orders.Where(n => n.Id == Id).FirstOrDefault();
+            return View(objorder);
+        }
+        [HttpPost]
+        public ActionResult Delete(Order objOder)
+        {
+
+            var objorder = objWebBanHangEntities2.Orders.Where(n => n.Id == objOder.Id).FirstOrDefault();
+            objWebBanHangEntities2.Orders.Remove(objorder);
+            objWebBanHangEntities2.SaveChanges();
+            return RedirectToAction("Index");
+        }
+       
     }
 }

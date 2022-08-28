@@ -1,0 +1,54 @@
+﻿@model WebBanHang.Context.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+
+    <h2 style="color: red ">Chi tiết đơn hàng </h2>
+
+    <div>
+        <h5 style="color: #808080 ">Đơn hàng</h5>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UsertId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UsertId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOnUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOnUtc)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @*@Html.ActionLink("Chỉnh s", "Edit", new { id = Model.Id }) |*@
+        @Html.ActionLink("Quay về danh sách", "Index")
+    </p>
+    </div>
